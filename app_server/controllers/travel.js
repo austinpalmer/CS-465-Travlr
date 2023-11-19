@@ -3,13 +3,20 @@ const fs = require('fs');
  Note: Not best practice, will reload data everytime page is called. Change code to be in the startup later
  Currently used for rapid development */
 const trips = JSON.parse(fs.readFileSync('./data/trips.json', "utf8"));
+const roomData = JSON.parse(fs.readFileSync('./data/roomData.json', "utf8"));
 
 
-// Get Traveler view */
+// Get Traveler view
 const travel = (req, res) => {
     res.render('travel', { title: 'Travlr Getaways', trips});
 };
 
+// Get Rooms view
+const rooms = (req, res) => {
+    res.render('rooms', { title: 'Rooms', roomData})
+};
+
 module.exports = {
-    travel
+    travel,
+    rooms
 };
