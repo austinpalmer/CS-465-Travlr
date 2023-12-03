@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const controller = require('../controllers/travel');
 
-// Get travel page
-router.get('/', controller.travelList);
+// Get meals page
+router.get('/', controller.meals);
 
 module.exports = router;

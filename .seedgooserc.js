@@ -1,6 +1,6 @@
 module.exports = {
-    modelBaseDirectory:"app_server/database/models",
+    modelBaseDirectory:"app_api/database/models",
     models: ["*.js", "!db.js"],
-    data: "data",
-    db: "mongodb://localhost:27017/travlr",
+    data: "data/tripsData",
+    db: "mongodb://127.0.0.1/travlr",
 };

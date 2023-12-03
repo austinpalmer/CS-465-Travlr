@@ -11,11 +11,12 @@ const connect = () => {
         useNewUrlParser: true,
         useCreateIndex: true
     }), 1000);
+    
 }
 
 // Connection callback/success message
 mongoose.connection.on('connected', () => {
-    console.log(`Mongoose connection error: ${dbURI}`);
+    console.log(`Mongoose connected to: ${dbURI}`);
 });
 // Disconnected callback/message
 mongoose.connection.on('disconnected', () => {
@@ -68,4 +69,4 @@ process.on('SIGTERM', () => {
 connect();
 
 // bring in mongoose schema
-require('./models/travlr');
+require("./models/travlr");
