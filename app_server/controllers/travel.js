@@ -7,7 +7,7 @@ const apiOptions = {
 /* Parse JSON data for trips (name, image, desc.)
  Note: Not best practice, will reload data everytime page is called. Change code to be in the startup later
  Currently used for rapid development */
-// const tripsData = JSON.parse(fs.readFileSync('./data/tripsData.json', "utf8"));
+// const trips = JSON.parse(fs.readFileSync('./data/trips.json', "utf8"));
 const roomsData = JSON.parse(fs.readFileSync('./data/roomsData.json', "utf8"));
 
 // Render Travel List
@@ -23,7 +23,7 @@ const renderTravelList = (req, res, responseBody) => {
             message = 'No trips exist in database!';
         }
     }
-    // Render page with tripsData
+    // Render page with trips
     res.render('travel', {
         title: pageTitle,
         trips: responseBody,
@@ -52,12 +52,6 @@ const travelList = (req, res) => {
         }
     )
 }
-
-/* Get Traveler view
-const travel = (req, res) => {
-    res.render('travel', { title: 'Getaways', tripsData});
-};
-*/
 
 // Get Rooms view
 const rooms = (req, res) => {

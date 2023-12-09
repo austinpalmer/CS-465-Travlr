@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const model = mongoose.model('tripsData');
+const model = mongoose.model('trips');
 
 // Callback to return all trips
 const tripsList = async (req, res) => {

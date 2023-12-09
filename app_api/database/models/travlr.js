@@ -20,5 +20,5 @@ const tripSchema = new mongoose.Schema({
     rate: {type: String, required: true}
 });*/
 
-module.exports = mongoose.model("tripsData", tripSchema);
+module.exports = mongoose.model("trips", tripSchema, 'trips');
 //module.exports = mongoose.model("roomsData", roomSchema);
