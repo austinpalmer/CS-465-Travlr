@@ -11,6 +11,8 @@ router
 // Get specific trip
 router
     .route('/trips/:tripCode')
-    .get(tripsController.tripsFindCode);
+    .get(tripsController.tripsFindCode)
+    .put(tripsController.tripsUpdateTrip)
+    .delete(tripsController.tripsDeleteTrip);
 
 module.exports = router;
