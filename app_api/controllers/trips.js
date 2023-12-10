@@ -24,7 +24,34 @@ const tripsList = async (req, res) => {
         });
 };
 
-// Call back to return specific trip
+// Callback to add a new trip
+const tripsAddTrip = async(req, res) => {
+    // Call mongoose create method to POST data to backend from SPA
+    model
+    .create({             
+        code: req.body.code,
+        name: req.body.name,
+        length: req.body.length,
+        start: req.body.start,
+        resort: req.body.resort,
+        perPerson: req.body.perPerson,
+        image: req.body.image,
+        description: req.body.description
+    },
+    (err, trip) => {
+        if (err) {
+            return res
+                .status(400)
+                .json(err);
+        } else {
+            return res
+                .status(201)
+                .json(trip);
+        }
+    });
+}
+
+// Callback to return specific trip
 const tripsFindCode = async (req, res) => {
     model
         .find({ 'code': req.params.tripCode })
@@ -49,5 +76,6 @@ const tripsFindCode = async (req, res) => {
 
 module.exports = {
     tripsList,
-    tripsFindCode
+    tripsFindCode,
+    tripsAddTrip
 };

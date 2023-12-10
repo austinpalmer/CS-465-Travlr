@@ -24,11 +24,13 @@ const renderTravelList = (req, res, responseBody) => {
         }
     }
     // Render page with trips
-    res.render('travel', {
-        title: pageTitle,
-        trips: responseBody,
-        message
-    });
+    res.render('travel', 
+        {
+            title: pageTitle,
+            trips: responseBody,
+            message
+        }
+    );
 }
 
 // GET Traveler List
@@ -37,7 +39,7 @@ const travelList = (req, res) => {
     const requestOptions = {
         url: `${apiOptions.server}${path}`,
         method: 'GET',
-        JSON: {},
+        json: {},
     };
     // Log API call for debugging
     console.info('>> travelController.travelList calling ' + requestOptions.url);
@@ -50,7 +52,7 @@ const travelList = (req, res) => {
             }
             renderTravelList(req, res, body);
         }
-    )
+    );
 }
 
 // Get Rooms view
