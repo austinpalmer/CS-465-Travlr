@@ -4,6 +4,12 @@ import { Router } from '@angular/router';
 import { TripDataService } from '../services/trip-data.service';
 import { Trip } from '../models/trip';
 
+
+/* 
+  This component holds the view for all trips and the layout.
+  The user can navigate to the add-trip component to add a trip.
+*/
+
 @Component({
   selector: 'app-trip-listing',
   templateUrl: './trip-listing.component.html',

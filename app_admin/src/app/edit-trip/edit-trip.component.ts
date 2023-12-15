@@ -3,6 +3,11 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { TripDataService } from '../services/trip-data.service';
 
+/* 
+  This component takes data from the form and edits a trip
+  by sending data to the API and replacing the current data.
+*/
+
 @Component({
 selector: 'app-edit-trip',
 templateUrl: './edit-trip.component.html',

@@ -3,6 +3,11 @@ import { Http } from '@angular/http';
 
 import { Trip } from '../models/trip';
 
+/* 
+  This service interacts with the API to perform CRUD operations 
+  based on the form data retreived from the components.
+*/
+
 @Injectable()
 export class TripDataService {
 

@@ -3,6 +3,11 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { TripDataService } from '../services/trip-data.service';
 
+/* 
+  This component takes data from the form and creates a new trip
+  by sending data to the API 
+*/
+
 @Component({
 selector: 'app-add-trip',
 templateUrl: './add-trip.component.html',

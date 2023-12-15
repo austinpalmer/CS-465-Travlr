@@ -4,6 +4,11 @@ import { Router } from "@angular/router";
 import { Trip } from '../models/trip';
 import { TripDataService } from '../services/trip-data.service';
 
+/* 
+  This component holds the view for an individual trip and allows 
+  the user to navigate to the edit-trip and delete-trip components.
+*/
+
 @Component({
   selector: 'app-trip-card',
   templateUrl: './trip-card.component.html',

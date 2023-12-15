@@ -5,42 +5,43 @@ const apiOptions = {
 
 /*
     This file serves as a controller to request data from the API
-    and then rendering the view based on the returned trips data or error.
+    and then rendering the view based on the returned rooms data or error.
 */
 
-// Render Travel List
-const renderTravelList = (req, res, responseBody) => {
+
+// Render Rooms List
+const renderRoomsList = (req, res, responseBody) => {
     let message = null;
-    let pageTitle = 'Travel';
+    let pageTitle = 'Rooms';
     // If response data isn't an array, throw error
     if (!(responseBody instanceof Array)) {
         message = 'API lookup error';
         responseBody = [];
     } else {
         if (!responseBody.length) {
-            message = 'No trips exist in database!';
+            message = 'No rooms exist in database!';
         }
     }
     // Render page with trips
-    res.render('travel', 
+    res.render('rooms', 
         {
             title: pageTitle,
-            trips: responseBody,
+            rooms: responseBody,
             message
         }
     );
 }
 
-// GET Traveler List
-const travelList = (req, res) => {
-    const path = '/api/trips';
+// GET Room List
+const roomsList = (req, res) => {
+    const path = '/api/rooms';
     const requestOptions = {
         url: `${apiOptions.server}${path}`,
         method: 'GET',
         json: {},
     };
     // Log API call for debugging
-    console.info('>> travelController.travelList calling ' + requestOptions.url);
+    console.info('>> roomsController.roomsList calling ' + requestOptions.url);
     // Request data from API and call render method if data exists
     request(
         requestOptions,
@@ -48,24 +49,11 @@ const travelList = (req, res) => {
             if (err) {
                 console.error(err);
             }
-            renderTravelList(req, res, body);
+            renderRoomsList(req, res, body);
         }
     );
 }
 
-// Get Meals view
-const meals = (req, res) => {
-    res.render('meals', { title: 'Meals'})
-};
-
-// Get News view
-const news = (req, res) => {
-    res.render('news', { title: 'News'})
-};
-
-
 module.exports = {
-    travelList,
-    meals,
-    news
+    roomsList
 };

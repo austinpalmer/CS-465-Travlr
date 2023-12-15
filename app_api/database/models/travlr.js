@@ -12,13 +12,6 @@ const tripsSchema = new mongoose.Schema({
     description: {type: String, required: true}
 });
 
-// define the rooms schema
-/*const roomSchema = new mongoose.Schema({
-    room: {type: String, required: true, index: true},
-    image: {type: String, required: true}, 
-    description: {type: String, required: true},
-    rate: {type: String, required: true}
-});*/
+
 
 module.exports = mongoose.model("trips", tripsSchema, 'trips');
-//module.exports = mongoose.model("roomsData", roomSchema);

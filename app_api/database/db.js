@@ -3,6 +3,11 @@ const host = process.env.DB_HOST || 'localhost:27017';
 const dbURI = `mongodb://${host}/travlr`;
 const readLine = require('readline');
 
+/*
+    This file connects mongoose and mongoDB. This links the models
+    and handles connection types.
+*/
+
 // avoid current server discovery and monitoring engine is deprecated
 mongoose.set('useUnifiedTopology', true);
 // Connect to DB
@@ -70,3 +75,5 @@ connect();
 
 // bring in mongoose schema
 require("./models/travlr");
+require("./models/rooms");
+require("./models/user");
