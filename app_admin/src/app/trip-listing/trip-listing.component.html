@@ -1,0 +1,9 @@
+<div style="padding-left: 25px; padding-top: 25px;" *ngIf="isLoggedIn()">
+    <!-- Button to add a new trip. Calls addTrip() upon click-->
+    <button style="width: 150px; background-color: black;" (click)="addTrip()" class="btn btn-primary">Add Trip</button>
+</div>
+<div class="row">
+    <div *ngFor="let trip of trips" class="col-md-3" style="padding: 50px">
+        <app-trip-card [trip]="trip" class="card-deck mt-2 w-75"></app-trip-card>
+    </div>
+</div>
