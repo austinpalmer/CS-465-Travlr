@@ -5,7 +5,7 @@ const { expressjwt: jwt } = require('express-jwt');
 const auth = jwt({
     secret: process.env.JWT_SECRET,
     // User is coming in through token called payload
-    userProperty: 'payload',
+    requestProperty: 'payload',
     algorithms: ['HS256']
 });
 

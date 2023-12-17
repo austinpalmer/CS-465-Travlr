@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 // import { trips } from './data/trips';
 import { TripDataService } from '../services/trip-data.service';
 import { Trip } from '../models/trip';
+import { AuthenticationService } from '../services/authentication.service';
 
 
 /* 
@@ -21,7 +22,19 @@ export class TripListingComponent implements OnInit {
   message: string;
 
   // Import API service to retrieve array of trips
-  constructor(private tripDataService: TripDataService, private router: Router) { }
+  constructor(
+    private tripDataService: TripDataService,
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) { }
+
+  ngOnInit() {
+    this.getTrips();
+  }
+
+  public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
+  }
 
   // POST trip from tripDataService, button click callback
   private addTrip(): void {
@@ -40,9 +53,5 @@ export class TripListingComponent implements OnInit {
           this.message = foundTrips.length > 0 ? '' : 'No Trips Found';
           this.trips = foundTrips;
         });
-  }
-
-  ngOnInit() {
-    this.getTrips();
   }
 }

@@ -35,39 +35,37 @@ const tripsList = async (req, res) => {
 // Callback to add a new trip
 const tripsAddTrip = async(req, res) => {
     // Check if user has authorization
-    getUser(req, res, 
-        (req, res) => {
+    getUser(req, res, (req, res) => {
     // Call mongoose create method to POST data to backend from SPA
         Trip
-        .create({             
-            code: req.body.code,
-            name: req.body.name,
-            length: req.body.length,
-            start: req.body.start,
-            resort: req.body.resort,
-            perPerson: req.body.perPerson,
-            image: req.body.image,
-            description: req.body.description
-        },
-        (err, trip) => {
-            if (err) {
-                return res
-                    .status(400)
-                    .json(err);
-            } else {
-                return res
-                    .status(201)
-                    .json(trip);
-            }
-        });
-    })
+            .create({             
+                code: req.body.code,
+                name: req.body.name,
+                length: req.body.length,
+                start: req.body.start,
+                resort: req.body.resort,
+                perPerson: req.body.perPerson,
+                image: req.body.image,
+                description: req.body.description
+            },
+            (err, trip) => {
+                if (err) {
+                    return res
+                        .status(400)
+                        .json(err);
+                } else {
+                    return res
+                        .status(201)
+                        .json(trip);
+                }
+            });
+    });
 }
 
 // Callback to edit a trip
 const tripsUpdateTrip = async (req, res) => {
     // Check if user has authorization
-    getUser(req, res, 
-        (req, res) => {
+    getUser(req, res, (req, res) => {
         console.log(req.body);
         Trip
             .findOneAndUpdate({ 'code': req.params.tripCode }, {
@@ -107,8 +105,7 @@ const tripsUpdateTrip = async (req, res) => {
 // Callback to delete specific trip
 const tripsDeleteTrip = async(req, res) => {
     // Check if user has authorization
-    getUser(req, res, 
-        (req, res) => {
+    getUser(req, res, (req, res) => {
         console.log(req.body);
         Trip
         .findOneAndDelete({ 'code': req.params.tripCode })
@@ -163,6 +160,7 @@ const tripsFindCode = async (req, res) => {
 // 
 const getUser = (req, res, callback) => {
     // Verify there is a payload and email with the payload
+    console.log(req.payload.email);
     if (req.payload && req.payload.email) {
         // Find user by email
         User

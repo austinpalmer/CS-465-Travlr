@@ -1,0 +1,23 @@
+<div class="row" style="background-color: white;">
+  <div class="col-12 col-md-8">
+    <h2 style="padding-left: 25px; padding-top: 25px;">Register</h2>
+    <form (ngSubmit)="onRegisterSubmit(evt)">
+      <div role="alert" *ngIf="formErrors" class="alert alert-danger">{{ formErrors }}</div>
+        <div class="form-group" style="width: 500px; padding-left: 25px;">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" size="50" [(ngModel)]="credentials.name">
+        </div>
+        <div class="form-group" style="width: 500px; padding-left: 25px;">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" size="50" [(ngModel)]="credentials.email">
+        </div>
+        <div class="form-group" style="width: 500px; padding-left: 25px;">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="e.g 12+ alphanumerics" size="50" [(ngModel)]="credentials.password">
+        </div>
+        <div style="padding-left: 25px; padding-top: 15px;">
+          <button type="submit" role="button" class="btn btn-primary">Register!</button>
+        </div>
+    </form>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 <!-- Display the trips formatted as cards -->
 <div class="card m1-4" style="width: 18rem;">
-  <div class="card-header">{{ trip.name }}</div>
+  <div class="card-header" style="font-weight: bold;">{{ trip.name }}</div>
   <img src="assets/images/{{ trip.image }}" alt="trip thumbnail" class="card-img-top">
   <div class="card-body">
       <h6 class="card-subtitle mb-2 text-muted">{{ trip.resort }}</h6>
@@ -9,10 +9,10 @@
       </p>
       <p class="card-text" [innerHTML]="trip.description"></p>
   </div>
-   <div>
-    <button (click)="editTrip(trip)" class="btn btn-info">Edit</button>
+   <div style="text-align: center; padding-bottom: 15px" *ngIf="isLoggedIn()">
+    <button class="btn btn-primary" style="width: 150px; background-color: black;" (click)="editTrip(trip)">Edit</button>
    </div>
-   <div>
-    <button (click)="deleteTrip(tripCode)" class="btn btn-info">Delete</button>
+   <div style="text-align: center; padding-bottom: 15px;" *ngIf="isLoggedIn()">
+    <button class="btn btn-primary" style="width: 150px; background-color: black;" (click)="deleteTrip(trip)">Delete</button>
    </div>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { TripDataService } from '../services/trip-data.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 /* 
   This component takes data from the form and edits a trip
@@ -17,7 +18,11 @@ styleUrls: ['./edit-trip.component.css']
 export class EditTripComponent implements OnInit {
   editForm: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder, private router: Router, private tripService: TripDataService) { }
+  constructor(private formBuilder: FormBuilder, 
+    private router: Router, 
+    private tripService: TripDataService,
+    private authenticationService: AuthenticationService
+    ) { }
 
   // Retrieve stashed tripCode from trip-card-component.ts
   ngOnInit() {
